@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE struts-config PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN"
+        "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+
+    <form-beans>
+        <form-bean name="ref" type="com.yash.form.Student"/>
+        <form-bean name="dynaAction" type="org.apache.struts.action.DynaActionForm">
+            <form-property name="username" type="java.lang.String"/>
+            <form-property name="password" type="java.lang.String"/>
+        </form-bean>
+    </form-beans>
+
+    <global-exceptions/>
+
+    <action-mappings>
+        <action path="/reg" name="ref" type="com.yash.action.StudentAction" parameter="parameter" >
+            <forward name="success" path="/success.jsp"/>
+        </action>
+
+        <action path="/peg" name="dynaAction" type="com.yash.action.Dyna">
+            <forward name="dyna" path="/dyna.jsp"/>
+        </action>
+
+    </action-mappings>
+    
+    <message-resources parameter="application"/>
+</struts-config>
